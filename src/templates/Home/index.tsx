@@ -1,7 +1,8 @@
-import { Heading } from 'components/Heading';
+import { CoverCarousel } from 'components/CoverCarousel';
+import mock from 'components/CoverCarousel/mock';
 
 function Home() {
-  return <Heading>Example</Heading>;
+  return <CoverCarousel images={mock}></CoverCarousel>;
 }
 
 export default Home;
