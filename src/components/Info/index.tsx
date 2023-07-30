@@ -8,7 +8,7 @@ export type InfoProps = {
 export const Info = ({ realState }: InfoProps) => {
   return (
     <Styled.Wrapper>
-      <p>{realState.data.attributes.streetName}</p>
+      <p style={{ margin: 0 }}>{realState.data.attributes.streetName}</p>
     </Styled.Wrapper>
   );
 };

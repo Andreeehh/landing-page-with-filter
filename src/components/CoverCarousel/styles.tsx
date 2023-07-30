@@ -1,10 +1,11 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    ${({ theme }) => css`
-      width: 100%;
-      height: 20rem;
-      display:block;
-      margin-bottom: ${theme.spacings.medium}
-    `}
+`;
+
+export const Cover = styled.img`
+    width: 100%;
+    max-height: 24rem;
+    height: 100%;
+    transition: opacity 300ms ease-in-out;
 `;

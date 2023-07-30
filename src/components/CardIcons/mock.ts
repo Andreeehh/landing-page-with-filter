@@ -1,3 +1,5 @@
+import { StrapiRealState } from 'shared-typed/strapi-real-state';
+
 export default {
   data: {
     id: 3,
@@ -17,4 +19,4 @@ export default {
       notes: 'ap 83',
     },
   },
-};
+} as StrapiRealState;
