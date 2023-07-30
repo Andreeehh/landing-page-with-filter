@@ -1,5 +1,5 @@
 import { StrapiRealState } from 'shared-typed/strapi-real-state';
-import { Bed } from '@styled-icons/boxicons-regular/Bed';
+import { Bed } from '@styled-icons/material-outlined/Bed';
 import { Blueprint } from '@styled-icons/simple-icons/Blueprint';
 import { Shower } from '@styled-icons/fa-solid/Shower';
 import { CarSport } from '@styled-icons/ionicons-outline/CarSport';

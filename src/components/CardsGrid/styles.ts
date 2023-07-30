@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
-  ${({ theme }) => css``}
+width: 100%;
 `;
 
 export const NotFound = styled.p`
@@ -17,7 +17,7 @@ export const Grid = styled.div`
     max-width: 120rem;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
     gap: ${theme.spacings.large};
     padding: ${theme.spacings.large};
 

@@ -3,6 +3,7 @@ import * as Styled from './styles';
 import { loadRealStates } from 'api/load-real-states';
 import { Base } from 'templates/Base';
 import { useState, useEffect } from 'react';
+import { CardsGrid } from 'components/CardsGrid';
 
 export type CardsTemplateProps = RealStatesTemplateProps;
 
@@ -51,6 +52,7 @@ export const CardsTemplate = ({
   return (
     <Base>
       {/* <PostGrid RealStates={stateRealStates}></PostGrid> */}
+      <CardsGrid realStates={stateRealStates}></CardsGrid>
 
       {stateRealStates && stateRealStates.data.length ? (
         <Styled.ButtonContainer>
