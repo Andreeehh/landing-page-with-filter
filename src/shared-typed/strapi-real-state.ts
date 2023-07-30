@@ -1,3 +1,5 @@
+import { StrapiImages } from './strapi-images';
+
 export type StrapiRealState = {
   data: {
     id: number;
@@ -15,6 +17,7 @@ export type StrapiRealState = {
       streetNumber: string;
       addressType: string;
       notes: string;
+      cover: StrapiImages;
     };
   };
 };

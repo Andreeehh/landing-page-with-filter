@@ -14,7 +14,7 @@ export const CoverCarousel = ({ images }: CoverCarouselProps) => {
       <Carousel>
         {images.data.map((image) => (
           <Carousel.Item key={image.id}>
-            <img
+            <Styled.Cover
               src={image.attributes.url}
               alt={image.attributes.alternativeText}
             />

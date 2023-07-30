@@ -32,8 +32,12 @@ export const Title = styled.h1<
   Pick<HeadingProps, 'colorDark' | 'size' | 'uppercase'>
 >`
   ${({ theme, colorDark, size, uppercase }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: ${colorDark ? theme.colors.primary : theme.colors.white};
     line-height: 1.2;
+    margin: 10px 0;
     ${titleSize[size](theme)};
     ${titleCase(uppercase)};
   `}
