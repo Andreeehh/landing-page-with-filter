@@ -16,25 +16,25 @@ export const CardIcons = ({ realState }: CardIconsProps) => {
         <Styled.IconWrapper>
           <Blueprint />
         </Styled.IconWrapper>
-        {realState.data.attributes.size}
+        {realState.attributes.size}
       </Styled.Label>
       <Styled.Label>
         <Styled.IconWrapper>
           <Bed />
         </Styled.IconWrapper>
-        {realState.data.attributes.bedrooms}
+        {realState.attributes.bedrooms}
       </Styled.Label>
       <Styled.Label>
         <Styled.IconWrapper>
           <Shower />
         </Styled.IconWrapper>
-        {realState.data.attributes.bathrooms}
+        {realState.attributes.bathrooms}
       </Styled.Label>
       <Styled.Label>
         <Styled.IconWrapper>
           <CarSport />
         </Styled.IconWrapper>
-        {realState.data.attributes.parkingSpaces}
+        {realState.attributes.parkingSpaces}
       </Styled.Label>
     </Styled.Wrapper>
   );
