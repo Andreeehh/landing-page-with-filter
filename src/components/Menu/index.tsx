@@ -49,13 +49,13 @@ export const Menu = ({ realStateName, logo }: MenuProps) => {
   useEffect(() => {
     const fetchNeighborhoodsData = async () => {
       const neighborhoodsData = await fetchNeighborhoods(cities[filters.city]);
-      // console.log(neighborhoodsData);
+      console.log(neighborhoodsData);
       setNeighborhoods(neighborhoodsData);
     };
     if (cities[filters.city]) {
       fetchNeighborhoodsData();
     }
-  }, [cities[filters.city]]);
+  }, [cities, filters.city]);
 
   return (
     <>
@@ -77,7 +77,6 @@ export const Menu = ({ realStateName, logo }: MenuProps) => {
 
           {/* City filter as a combobox */}
           <FilterAutocomplete
-            name="city"
             label="Cidade"
             value={filters.city}
             onChange={(newValue) => handleFilterChange('city', newValue)}
@@ -85,9 +84,8 @@ export const Menu = ({ realStateName, logo }: MenuProps) => {
             options={Object.keys(cities)}
           />
 
-          {filters.city && (
+          {filters.city && neighborhoods.length > 0 && (
             <FilterAutocomplete
-              name="neighborhood"
               label="Bairro"
               value={filters.neighborhood}
               onChange={(newValue) =>

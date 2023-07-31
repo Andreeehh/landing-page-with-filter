@@ -1,13 +1,11 @@
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
-  ${({ theme }) => css`
     display: flex;
     align-items: center;
     gap: 1rem;
     margin: 1rem 0;
     justify-content: space-between;
-  `}
 `;
 
 export const Label = styled.label`

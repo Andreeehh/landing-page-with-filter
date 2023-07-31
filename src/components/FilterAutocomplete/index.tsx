@@ -1,7 +1,6 @@
 import { Autocomplete, TextField } from '@mui/material';
 
 export type FilterAutocompleteProps = {
-  name: string;
   label: string;
   value: string;
   onChange: (value: string) => void;
@@ -11,7 +10,6 @@ export type FilterAutocompleteProps = {
 };
 
 export const FilterAutocomplete = ({
-  name,
   label,
   value,
   onChange,
@@ -23,9 +21,9 @@ export const FilterAutocomplete = ({
     <Autocomplete
       options={options}
       getOptionLabel={(option) => option}
-      value={value}
+      value={value || ''}
       onChange={(_, newValue) => onChange(newValue)}
-      inputValue={value}
+      inputValue={value || ''}
       onInputChange={(_, newInputValue) => onChange(newInputValue)}
       disabled={disabled}
       renderInput={(params) => (
