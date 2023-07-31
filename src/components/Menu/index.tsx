@@ -49,7 +49,6 @@ export const Menu = ({ realStateName, logo }: MenuProps) => {
   useEffect(() => {
     const fetchNeighborhoodsData = async () => {
       const neighborhoodsData = await fetchNeighborhoods(cities[filters.city]);
-      console.log(neighborhoodsData);
       setNeighborhoods(neighborhoodsData);
     };
     if (cities[filters.city]) {

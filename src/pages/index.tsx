@@ -5,20 +5,27 @@ import {
 } from 'api/load-real-states';
 import { GetStaticProps } from 'next';
 import { StrapiRealStates } from 'shared-typed/strapi-real-satates';
+import { StrapiSettingResponse } from 'shared-typed/strapi-setting-response';
 import { CardsTemplate } from 'templates/CardsTemplate';
 
 export type RealStatesTemplateProps = {
   realStates?: StrapiRealStates;
   variables?: LoadRealStatesVariables;
+  setting?: StrapiSettingResponse;
 };
 
 export default function Index({
   realStates,
   variables,
+  setting,
 }: RealStatesTemplateProps) {
-  console.log(realStates);
-  console.log(variables);
-  return <CardsTemplate realStates={realStates} variables={variables} />;
+  return (
+    <CardsTemplate
+      realStates={realStates}
+      variables={variables}
+      setting={setting}
+    />
+  );
 }
 
 export const getStaticProps: GetStaticProps<
@@ -39,6 +46,7 @@ export const getStaticProps: GetStaticProps<
       variables: {
         ...defaultLoadRealStateVariables,
       },
+      setting: data.setting,
     },
     revalidate: 24 * 60,
   };

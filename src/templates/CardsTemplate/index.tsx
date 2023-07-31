@@ -10,6 +10,7 @@ export type CardsTemplateProps = RealStatesTemplateProps;
 export const CardsTemplate = ({
   realStates,
   variables,
+  setting,
 }: CardsTemplateProps) => {
   const [stateRealStates, setStateRealStates] = useState(realStates);
   const [stateVariables, setStateVariables] = useState(variables);
@@ -50,7 +51,7 @@ export const CardsTemplate = ({
   };
 
   return (
-    <Base>
+    <Base setting={setting.data}>
       {/* <PostGrid RealStates={stateRealStates}></PostGrid> */}
       <CardsGrid realStates={stateRealStates}></CardsGrid>
 

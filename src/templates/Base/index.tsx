@@ -6,12 +6,15 @@ import { Footer } from 'components/Footer';
 import { GoTop } from 'components/GoTop';
 
 import { Cancel, CheckCircleOutline } from '@styled-icons/material-outlined';
+import { StrapiSetting } from 'shared-typed/strapi-setting';
+import { Menu } from 'components/Menu';
 
 export type BaseProps = {
   children: React.ReactNode;
+  setting: StrapiSetting;
 };
 
-export const Base = ({ children }: BaseProps) => {
+export const Base = ({ children, setting }: BaseProps) => {
   const router = useRouter();
   const [searchValue, setSearchValue] = useState(router?.query?.q || '');
   const [searchDisabled, setSearchDisabled] = useState(true);
@@ -54,6 +57,10 @@ export const Base = ({ children }: BaseProps) => {
 
   return (
     <Styled.Wrapper>
+      <Menu
+        realStateName={setting.attributes.name}
+        logo={setting.attributes.logo.data.attributes.url}
+      ></Menu>
       <ToggleTheme />
       {/* <Menu INSERIR O MENU DE FILTROS
         menuLink={setting.data.attributes.menuLink}
@@ -90,7 +97,7 @@ export const Base = ({ children }: BaseProps) => {
 
       <Styled.ContentContainer>{children}</Styled.ContentContainer>
       <Styled.FooterContainer>
-        <Footer footerHtml="Feito Colab André & Gabriel" />
+        <Footer footerHtml={setting.attributes.footer} />
       </Styled.FooterContainer>
       <GoTop />
     </Styled.Wrapper>
