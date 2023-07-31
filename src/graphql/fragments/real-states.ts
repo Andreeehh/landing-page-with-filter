@@ -25,6 +25,8 @@ fragment realState on RealState{
   bedrooms
   bathrooms
   parkingSpaces
+  rentalValue
+  purchaseValue
   createdAt
   cover{
     ...uploadFileRelationResponseCollection

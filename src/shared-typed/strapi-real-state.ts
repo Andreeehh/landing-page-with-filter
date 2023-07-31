@@ -16,6 +16,8 @@ export type StrapiRealState = {
     streetNumber: string;
     addressType: string;
     notes: string;
+    rentalValue: number;
+    purchaseValue: number;
     cover: StrapiImages;
   };
 };
