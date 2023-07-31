@@ -14,6 +14,7 @@ export const GQL_QUERY_GET_REAL_STATES = gql`
   $neighborhood: String
   $city: String
   $bedrooms: Int
+  $bathrooms: Int
   $parkingSpaces: Int
   $addressType: String
 ){
@@ -29,8 +30,9 @@ export const GQL_QUERY_GET_REAL_STATES = gql`
           {streetName: {containsi: $streetName}}
           {neighborhood: {containsi: $neighborhood}}
           {city: {containsi: $city}}
-          {bedrooms: {containsi: $bedrooms}}
-          {parkingSpaces: {containsi: $parkingSpaces}}
+          {bedrooms: {eq: $bedrooms}}
+          {bathrooms: {eq: $bathrooms}}
+          {parkingSpaces: {eq: $parkingSpaces}}
           {addressType: {containsi: $addressType}}
         ]
       }
