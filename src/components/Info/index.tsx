@@ -1,14 +1,13 @@
-import { StrapiRealState } from 'shared-typed/strapi-real-state';
 import * as Styled from './styles';
 
 export type InfoProps = {
-  realState: StrapiRealState;
+  infoValue: string;
 };
 
-export const Info = ({ realState }: InfoProps) => {
+export const Info = ({ infoValue }: InfoProps) => {
   return (
     <Styled.Wrapper>
-      <p style={{ margin: 0 }}>{realState.attributes.streetName}</p>
+      <p style={{ margin: 0 }}>{infoValue}</p>
     </Styled.Wrapper>
   );
 };

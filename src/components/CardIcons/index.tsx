@@ -12,25 +12,25 @@ export type CardIconsProps = {
 export const CardIcons = ({ realState }: CardIconsProps) => {
   return (
     <Styled.Wrapper>
-      <Styled.Label>
+      <Styled.Label title="Tamanho do imóvel em m²">
         <Styled.IconWrapper>
           <Blueprint />
         </Styled.IconWrapper>
         {realState.attributes.size}
       </Styled.Label>
-      <Styled.Label>
+      <Styled.Label title="Quantidade de quartos">
         <Styled.IconWrapper>
           <Bed />
         </Styled.IconWrapper>
         {realState.attributes.bedrooms}
       </Styled.Label>
-      <Styled.Label>
+      <Styled.Label title="Quantidade de banheiros">
         <Styled.IconWrapper>
           <Shower />
         </Styled.IconWrapper>
         {realState.attributes.bathrooms}
       </Styled.Label>
-      <Styled.Label>
+      <Styled.Label title="Quantidade de vagas">
         <Styled.IconWrapper>
           <CarSport />
         </Styled.IconWrapper>

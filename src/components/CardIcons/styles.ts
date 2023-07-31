@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
 ${({ theme }) => css`
-   display: flex;
+  display: flex;
   align-items: center; /* Align items vertically */
   justify-content: center; /* Align items horizontally */
   gap: 4rem; /* Add some spacing between the icon and the text */

@@ -18,6 +18,8 @@ export default {
         streetNumber: '18-50',
         addressType: 'Apartamento',
         notes: 'ap 83',
+        rentalValue: null,
+        purchaseValue: 2575000,
         cover: {
           data: [
             {
@@ -61,6 +63,8 @@ export default {
         streetNumber: '456',
         addressType: 'Casa',
         notes: null,
+        rentalValue: 1450.85,
+        purchaseValue: 1250000,
         cover: {
           data: [
             {
@@ -90,6 +94,8 @@ export default {
         streetNumber: '992',
         addressType: 'Casa',
         notes: null,
+        rentalValue: 2100.5,
+        purchaseValue: null,
         cover: {
           data: [
             {

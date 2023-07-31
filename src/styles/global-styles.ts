@@ -15,11 +15,14 @@ export const GlobalStyles = createGlobalStyle`
   body {
     font-size: 1.6rem;
     font-family: ${({ theme }) => theme.font.family.default};
+    color: ${({ theme }) => theme.colors.darkText};
+    background: ${({ theme }) => theme.colors.white};
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: ${({ theme }) => theme.font.family};
     margin: ${({ theme }) => theme.spacings.large} 0;
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   p {

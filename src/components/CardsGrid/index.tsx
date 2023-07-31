@@ -11,7 +11,7 @@ export const CardsGrid = ({ realStates }: CardsGridProps) => {
     <Styled.Wrapper>
       {!realStates.data ||
         (realStates.data.length == 0 && (
-          <Styled.NotFound>Nenhum post encontrado aqui =(</Styled.NotFound>
+          <Styled.NotFound>Nenhum imóvel encontrado aqui =(</Styled.NotFound>
         ))}
 
       <Styled.Grid>

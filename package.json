@@ -19,6 +19,10 @@
     "postinstall": "npm run prepare"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.1",
+    "@mui/material": "^5.14.2",
     "@styled-icons/fa-solid": "^10.47.0",
     "@styled-icons/ionicons-outline": "^10.46.0",
     "@styled-icons/material-outlined": "^10.34.0",
@@ -28,8 +32,8 @@
     "graphql-request": "^6.1.0",
     "next": "12.1.6",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0",
     "react-bootstrap": "^2.8.0",
+    "react-dom": "^18.0.0",
     "react-markdown": "^8.0.3",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",

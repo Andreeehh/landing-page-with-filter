@@ -1,14 +1,34 @@
+import { formatCurrency } from 'utils/currency';
+import AddBusinessIcon from '@mui/icons-material/AddBusiness';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import * as Styled from './styles';
 
 export type CurrencyRowProps = {
-  title?: string;
+  rentalValue?: number;
+  purchaseValue?: number;
 };
 
-export const CurrencyRow = ({ title }: CurrencyRowProps) => {
+export const CurrencyRow = ({
+  rentalValue,
+  purchaseValue,
+}: CurrencyRowProps) => {
   return (
     <Styled.Wrapper>
-      <h1>Oi</h1>
-      <p>{title}</p>
+      {!purchaseValue && !rentalValue && (
+        <Styled.Label>Sem Valores</Styled.Label>
+      )}
+      {purchaseValue && (
+        <Styled.Label title="Valor de compra">
+          <AddBusinessIcon />
+          {formatCurrency(purchaseValue)}
+        </Styled.Label>
+      )}
+      {rentalValue && (
+        <Styled.Label title="Valor de aluguel">
+          <AttachMoneyIcon />
+          {formatCurrency(rentalValue)}
+        </Styled.Label>
+      )}
     </Styled.Wrapper>
   );
 };

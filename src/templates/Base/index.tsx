@@ -72,7 +72,7 @@ export const Base = ({ children }: BaseProps) => {
       <Styled.SearchContainer>
         <Styled.SearchInput
           type="search"
-          placeholder="Encontre posts"
+          placeholder="Encontre imóveis"
           name="q"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}

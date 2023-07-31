@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Heading } from 'components/Heading';
 import { Info } from 'components/Info';
 import { CardIcons } from 'components/CardIcons';
+import { CurrencyRow } from 'components/CurrencyRow';
 
 export type CardProps = {
   realState: StrapiRealState;
@@ -19,8 +20,20 @@ export const Card = ({ realState }: CardProps) => {
       <Heading size="small" as="h4">
         {realState.attributes.city}, {realState.attributes.neighborhood}
       </Heading>
-      <Info realState={realState}></Info>
+      <Info infoValue={realState.attributes.streetName}></Info>
       <CardIcons realState={realState}></CardIcons>
+      <CurrencyRow
+        rentalValue={
+          realState.attributes.rentalValue
+            ? realState.attributes.rentalValue
+            : null
+        }
+        purchaseValue={
+          realState.attributes.purchaseValue
+            ? realState.attributes.purchaseValue
+            : null
+        }
+      ></CurrencyRow>
     </Styled.Wrapper>
   );
 };
