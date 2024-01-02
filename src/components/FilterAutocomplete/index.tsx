@@ -1,3 +1,4 @@
+import * as Styled from './styles';
 import { Autocomplete, TextField } from '@mui/material';
 
 export type FilterAutocompleteProps = {
@@ -18,22 +19,24 @@ export const FilterAutocomplete = ({
   options,
 }: FilterAutocompleteProps) => {
   return (
-    <Autocomplete
-      options={options}
-      getOptionLabel={(option) => option}
-      value={value || ''}
-      onChange={(_, newValue) => onChange(newValue)}
-      inputValue={value || ''}
-      onInputChange={(_, newInputValue) => onChange(newInputValue)}
-      disabled={disabled}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          label={label}
-          placeholder={placeholder}
-          variant="outlined"
-        />
-      )}
-    />
+    <Styled.Wrapper>
+      <Autocomplete
+        options={options}
+        getOptionLabel={(option) => option}
+        value={value || ''}
+        onChange={(_, newValue) => onChange(newValue)}
+        inputValue={value || ''}
+        onInputChange={(_, newInputValue) => onChange(newInputValue)}
+        disabled={disabled}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label={label}
+            placeholder={placeholder}
+            variant="outlined"
+          />
+        )}
+      />
+    </Styled.Wrapper>
   );
 };

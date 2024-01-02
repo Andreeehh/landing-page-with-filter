@@ -8,6 +8,7 @@ import { GoTop } from 'components/GoTop';
 import { Cancel, CheckCircleOutline } from '@styled-icons/material-outlined';
 import { StrapiSetting } from 'shared-typed/strapi-setting';
 import { Menu } from 'components/Menu';
+import { Header } from 'components/Header';
 
 export type BaseProps = {
   children: React.ReactNode;
@@ -62,21 +63,15 @@ export const Base = ({ children, setting }: BaseProps) => {
         logo={setting.attributes.logo.data.attributes.url}
       ></Menu>
       <ToggleTheme />
-      {/* <Menu INSERIR O MENU DE FILTROS
-        menuLink={setting.data.attributes.menuLink}
-        blogName={setting.data.attributes.blogName}
-        logo={setting.data.attributes.logo.data.attributes.url}
-      /> */}
       <Styled.HeaderContainer>
-        {/* <Header INSERIR A LOGO
-          blogName={setting.data.attributes.blogName}
-          blogDescription={setting.data.attributes.blogDescription}
-          logo={setting.data.attributes.logo.data.attributes.url}
+        <Header
+          name={setting.attributes.name}
+          logo={setting.attributes.logo.data.attributes.url}
           showText={true}
-        /> */}
+        />
       </Styled.HeaderContainer>
 
-      <Styled.SearchContainer>
+      {/* <Styled.SearchContainer>
         <Styled.SearchInput
           type="search"
           placeholder="Encontre imóveis"
@@ -93,7 +88,7 @@ export const Base = ({ children, setting }: BaseProps) => {
         ) : (
           <Cancel className="search-cancel-icon" aria-label="Input enabled" />
         )}
-      </Styled.SearchContainer>
+      </Styled.SearchContainer> */}
 
       <Styled.ContentContainer>{children}</Styled.ContentContainer>
       <Styled.FooterContainer>

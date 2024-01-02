@@ -22,6 +22,7 @@ export const Wrapper = styled.div<MenuBehaviorProps>`
     left: 0;
     transition: all 300ms ease-in-out;
     overflow-y: auto;
+    background-color: ${theme.colors.gray0};
     ${wrapperChanger(menuVisible)}
   `}
 `;

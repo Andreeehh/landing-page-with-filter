@@ -1,16 +1,27 @@
-import { Menu as MenuIcon } from '@styled-icons/material-outlined/Menu';
+import { Search as Search } from '@styled-icons/material-outlined/Search';
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close';
 import * as Styled from './styles';
 import { LogoLink } from 'components/LogoLink';
 import { useEffect, useState } from 'react';
-import { FilterInput, FilterInputProps } from 'components/FilterInput';
+import { TextInput } from 'components/TextInput';
 import { fetchCities } from 'api/load-cities';
 import { fetchNeighborhoods } from 'api/load-neighborhoods';
 import { FilterAutocomplete } from 'components/FilterAutocomplete';
+import { Button } from 'templates/CardsTemplate/styles';
+import { SearchButton } from 'components/SearchButton';
 
 export type MenuProps = {
   realStateName: string;
   logo: string;
+};
+
+export type FilterInputProps = {
+  name: string;
+  type: 'text' | 'number';
+  value: string;
+  filterValues: { [key: string]: string };
+  setFilterValues: (filterValues: { [key: string]: string }) => void;
+  label: string;
 };
 
 export const Menu = ({ realStateName, logo }: MenuProps) => {
@@ -46,15 +57,18 @@ export const Menu = ({ realStateName, logo }: MenuProps) => {
     fetchCitiesData();
   }, []);
 
-  useEffect(() => {
-    const fetchNeighborhoodsData = async () => {
-      const neighborhoodsData = await fetchNeighborhoods(cities[filters.city]);
-      setNeighborhoods(neighborhoodsData);
-    };
-    if (cities[filters.city]) {
-      fetchNeighborhoodsData();
-    }
-  }, [cities, filters.city]);
+  //Aguardar fetch de bairros
+  // useEffect(() => {
+  //   const fetchNeighborhoodsData = async () => {
+  //     const neighborhoodsData = await fetchNeighborhoods(cities[filters.city]);
+  //     setNeighborhoods(neighborhoodsData);
+  //   };
+  //   console.log('cities[filters.city]');
+  //   console.log(cities[filters.city]);
+  //   if (cities[filters.city]) {
+  //     fetchNeighborhoodsData();
+  //   }
+  // }, [cities, filters.city]);
 
   return (
     <>
@@ -65,8 +79,8 @@ export const Menu = ({ realStateName, logo }: MenuProps) => {
         title="Open or close menu"
         onClick={handleOpenCLoseMenu}
       >
-        {!menuVisible && <MenuIcon aria-label="OpenMenu" />}
-        {menuVisible && <CloseIcon aria-label="OpenMenu" />}
+        {!menuVisible && <Search aria-label="OpenFilters" />}
+        {menuVisible && <CloseIcon aria-label="OpenFilters" />}
       </Styled.OpenClose>
       <Styled.Wrapper menuVisible={menuVisible} aria-hidden={!menuVisible}>
         <Styled.Nav>
@@ -75,15 +89,15 @@ export const Menu = ({ realStateName, logo }: MenuProps) => {
           </Styled.Logo>
 
           {/* City filter as a combobox */}
-          <FilterAutocomplete
+          {/* <FilterAutocomplete
             label="Cidade"
             value={filters.city}
             onChange={(newValue) => handleFilterChange('city', newValue)}
             placeholder="Filtro por cidade..."
             options={Object.keys(cities)}
-          />
+          /> */}
 
-          {filters.city && neighborhoods.length > 0 && (
+          {/* {filters.city && neighborhoods.length > 0 && (
             <FilterAutocomplete
               label="Bairro"
               value={filters.neighborhood}
@@ -93,40 +107,41 @@ export const Menu = ({ realStateName, logo }: MenuProps) => {
               placeholder="Filtro por bairro..."
               options={neighborhoods}
             />
-          )}
+          )} */}
 
-          <FilterInput
+          {/* Bedrooms filter */}
+          <TextInput
             type="number"
             name="bedrooms"
             value={filters.bedrooms}
-            filterValues={filters}
-            setFilterValues={(filterValues) =>
-              handleFilterChange('bedrooms', filterValues.bedrooms)
+            onInputChange={(event) =>
+              handleFilterChange('bedrooms', event as string)
             }
-            labelName="Quartos"
+            label="Quartos"
           />
 
-          <FilterInput
+          {/* Bathrooms filter */}
+          <TextInput
             type="number"
             name="bathrooms"
             value={filters.bathrooms}
-            filterValues={filters}
-            setFilterValues={(filterValues) =>
-              handleFilterChange('bathrooms', filterValues.bathrooms)
+            onInputChange={(event) =>
+              handleFilterChange('bathrooms', event as string)
             }
-            labelName="Banheiros"
+            label="Banheiros"
           />
 
-          <FilterInput
+          {/* Parking spaces filter */}
+          <TextInput
             type="number"
             name="parkingSpaces"
             value={filters.parkingSpaces}
-            filterValues={filters}
-            setFilterValues={(filterValues) =>
-              handleFilterChange('parkingSpaces', filterValues.parkingSpaces)
+            onInputChange={(event) =>
+              handleFilterChange('parkingSpaces', event as string)
             }
-            labelName="Vagas"
+            label="Vagas"
           />
+          <SearchButton></SearchButton>
         </Styled.Nav>
       </Styled.Wrapper>
     </>
