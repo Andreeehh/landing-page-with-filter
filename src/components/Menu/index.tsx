@@ -9,6 +9,7 @@ import { fetchNeighborhoods } from 'api/load-neighborhoods';
 import { FilterAutocomplete } from 'components/FilterAutocomplete';
 import { Button } from 'templates/CardsTemplate/styles';
 import { SearchButton } from 'components/SearchButton';
+import { useRouter } from 'next/router';
 
 export type MenuProps = {
   realStateName: string;
@@ -25,6 +26,7 @@ export type FilterInputProps = {
 };
 
 export const Menu = ({ realStateName, logo }: MenuProps) => {
+  const router = useRouter();
   const [menuVisible, setMenuVisible] = useState(false);
   const [neighborhoods, setNeighborhoods] = useState<string[]>([]);
   const [cities, setCities] = useState<{ [name: string]: string }>({});
@@ -35,8 +37,8 @@ export const Menu = ({ realStateName, logo }: MenuProps) => {
   };
 
   const [filters, setFilters] = useState<FilterInputProps['filterValues']>({
-    neighborhood: '',
-    city: '',
+    // neighborhood: '',
+    // city: '',
     bedrooms: '',
     bathrooms: '',
     parkingSpaces: '',
@@ -69,6 +71,24 @@ export const Menu = ({ realStateName, logo }: MenuProps) => {
   //     fetchNeighborhoodsData();
   //   }
   // }, [cities, filters.city]);
+
+  const handleSearchClick = () => {
+    const nonEmptyFilters = Object.fromEntries(
+      Object.entries(filters).filter(([_, value]) => value !== ''),
+    );
+
+    const queryParams = new URLSearchParams(nonEmptyFilters);
+    // Se houver filtros, adicione à slug
+    const slug = queryParams.toString();
+    const path = slug ? `/${slug}` : '/';
+
+    router.push(path);
+  };
+
+  const handleResetClick = () => {
+    // Recarregar a página sem filtros
+    router.push('/');
+  };
 
   return (
     <>
@@ -141,7 +161,7 @@ export const Menu = ({ realStateName, logo }: MenuProps) => {
             }
             label="Vagas"
           />
-          <SearchButton></SearchButton>
+          <SearchButton onClick={handleSearchClick} />
         </Styled.Nav>
       </Styled.Wrapper>
     </>

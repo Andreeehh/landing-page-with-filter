@@ -14,6 +14,7 @@ export type LoadRealStatesVariables = {
   city?: string;
   addressType?: string;
   bedrooms?: number;
+  bathrooms?: number;
   parkingSpaces?: number;
 };
 
