@@ -13,7 +13,10 @@ export const ArticleHeader = ({ realState }: ArticleHeaderProps) => {
       <Heading size="big">
         {realState.attributes.streetName} - {realState.attributes.streetNumber}
       </Heading>
-      <Styled.Excerpt>{realState.attributes.neighborhood}</Styled.Excerpt>
+      <Styled.Excerpt>
+        {realState.attributes.city}, {realState.attributes.neighborhood} -{' '}
+        {realState.attributes.addressType}
+      </Styled.Excerpt>
       <CoverCarousel images={realState.attributes.cover}></CoverCarousel>
     </Styled.Wrapper>
   );

@@ -30,6 +30,7 @@ fragment realState on RealState {
   rentalValue
   purchaseValue
   createdAt
+  addressType
   cover {
     ...uploadFileRelationResponseCollection
   }
