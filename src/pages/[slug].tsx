@@ -24,17 +24,6 @@ export default function RealEstatePage({
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  // Aqui, você pode buscar as slugs dos imóveis, por exemplo, usando a mesma lógica que usou em `loadPages`
-  // Certifique-se de ajustar isso de acordo com a sua API e o esquema de dados
-  const paths = [];
-
-  return {
-    paths,
-    fallback: true, // ou 'blocking' se preferir uma renderização do lado do servidor (SSR) incremental
-  };
-};
-
 export const getStaticProps: GetStaticProps<RealEstatePageProps> = async ({
   params,
 }) => {
