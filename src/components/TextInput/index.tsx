@@ -35,7 +35,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   ) => {
     const inputRef = useRef<HTMLInputElement | null>(null);
 
-    React.useImperativeHandle(ref, () => inputRef.current!);
+    React.useImperativeHandle(ref, () => inputRef.current);
 
     const handleChange = () => {
       const value = inputRef.current?.value || '';

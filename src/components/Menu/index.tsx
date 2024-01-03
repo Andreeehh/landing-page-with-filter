@@ -2,12 +2,12 @@ import { Search as Search } from '@styled-icons/material-outlined/Search';
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close';
 import * as Styled from './styles';
 import { LogoLink } from 'components/LogoLink';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { TextInput } from 'components/TextInput';
-import { fetchCities } from 'api/load-cities';
-import { fetchNeighborhoods } from 'api/load-neighborhoods';
-import { FilterAutocomplete } from 'components/FilterAutocomplete';
-import { Button } from 'templates/CardsTemplate/styles';
+// import { fetchCities } from 'api/load-cities';
+// import { fetchNeighborhoods } from 'api/load-neighborhoods';
+// import { FilterAutocomplete } from 'components/FilterAutocomplete';
+// import { Button } from 'templates/CardsTemplate/styles';
 import { SearchButton } from 'components/SearchButton';
 import { useRouter } from 'next/router';
 
@@ -28,9 +28,8 @@ export type FilterInputProps = {
 export const Menu = ({ realStateName, logo }: MenuProps) => {
   const router = useRouter();
   const [menuVisible, setMenuVisible] = useState(false);
-  const [neighborhoods, setNeighborhoods] = useState<string[]>([]);
-  const [cities, setCities] = useState<{ [name: string]: string }>({});
-
+  // const [neighborhoods, setNeighborhoods] = useState<string[]>([]);
+  // const [cities, setCities] = useState<{ [name: string]: string }>({});
   const handleOpenCLoseMenu = (event: React.MouseEvent) => {
     event.preventDefault();
     setMenuVisible((v) => !v);
@@ -51,13 +50,13 @@ export const Menu = ({ realStateName, logo }: MenuProps) => {
     }));
   };
 
-  useEffect(() => {
-    const fetchCitiesData = async () => {
-      const citiesData = await fetchCities();
-      setCities(citiesData);
-    };
-    fetchCitiesData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchCitiesData = async () => {
+  //     const citiesData = await fetchCities();
+  //     setCities(citiesData);
+  //   };
+  //   fetchCitiesData();
+  // }, []);
 
   //Aguardar fetch de bairros
   // useEffect(() => {
@@ -85,10 +84,10 @@ export const Menu = ({ realStateName, logo }: MenuProps) => {
     router.push(path);
   };
 
-  const handleResetClick = () => {
-    // Recarregar a página sem filtros
-    router.push('/');
-  };
+  // const handleResetClick = () => {
+  //   // Recarregar a página sem filtros
+  //   router.push('/');
+  // };
 
   return (
     <>
