@@ -30,24 +30,8 @@ export default function PostPage({ realStates, setting }: CardsTemplateProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  let data: CardsTemplateProps | null = null;
-  let paths = [];
-
-  try {
-    data = await loadRealStates();
-    paths = data.realStates.data.map((realEstate) => ({
-      params: { slug: realEstate.attributes.slug },
-    }));
-  } catch (e) {
-    data = null;
-  }
-
-  if (!data) {
-    paths = [];
-  }
-
   return {
-    paths,
+    paths: [],
     fallback: true,
   };
 };

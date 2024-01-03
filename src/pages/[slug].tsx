@@ -24,6 +24,13 @@ export default function RealEstatePage({
   );
 }
 
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: true,
+  };
+};
+
 export const getStaticProps: GetStaticProps<RealEstatePageProps> = async ({
   params,
 }) => {
