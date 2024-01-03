@@ -14,13 +14,11 @@ export type CardProps = {
 export const Card = ({ realState }: CardProps) => {
   return (
     <Styled.Wrapper>
-      <Link href={`/real-state/${realState.attributes.slug}`}>
-        <a>
-          <CoverCarousel images={realState.attributes.cover}></CoverCarousel>
-        </a>
+      <Link href={`/real-estate/${realState.attributes.slug}`}>
+        <CoverCarousel images={realState.attributes.cover}></CoverCarousel>
       </Link>
       <Heading size="small" as="h4">
-        <Link href={`/real-state/${realState.attributes.slug}`}>
+        <Link href={`/real-estate/${realState.attributes.slug}`}>
           <a>
             {realState.attributes.city}, {realState.attributes.neighborhood}
           </a>

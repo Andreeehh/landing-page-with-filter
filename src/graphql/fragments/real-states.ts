@@ -16,6 +16,8 @@ fragment realStateEntity on RealStateEntity {
 
 fragment realState on RealState {
   name
+  slug
+  description
   streetName
   streetNumber
   notes

@@ -15,9 +15,10 @@ export type StrapiRealState = {
     parkingSpaces: number;
     streetNumber: string;
     addressType: string;
-    notes: string;
-    rentalValue: number;
-    purchaseValue: number;
+    notes?: string;
+    rentalValue: number | null;
+    purchaseValue: number | null;
     cover: StrapiImages;
+    description: string;
   };
 };
