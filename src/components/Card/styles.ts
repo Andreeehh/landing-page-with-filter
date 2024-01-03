@@ -7,5 +7,18 @@ ${({ theme }) => css`
   border-radius: 2%;
   background: ${theme.colors.gray1};
   margin: 0 auto;
+  a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 300ms ease-in-out;
+    }
+
+    &:hover a {
+      color: ${theme.colors.secondary};
+    }
+
+    &:hover img {
+      opacity: 0.8;
+    }
   `}
 `;

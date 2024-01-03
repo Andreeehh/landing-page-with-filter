@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.a`
   ${({ theme }) => css`
-    color: ${theme.colors.secondary};
+    color: ${theme.colors.deepBlack};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,6 +12,14 @@ export const Container = styled.a`
     svg {
     width: 4.5rem;
     height: 4.5rem;
+    text-decoration: none;
+      color: inherit;
+      transition: all 300ms ease-in-out;
   }
+  &:hover svg {
+      opacity: 0.8;
+      color: ${theme.colors.secondary};
+      cursor: pointer;
+    }
   `}
 `;

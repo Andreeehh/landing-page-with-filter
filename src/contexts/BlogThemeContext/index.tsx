@@ -36,7 +36,7 @@ export const BlogThemeProvider = ({ children }: BlogThemeProviderProps) => {
           colors: {
             primary: '#FFFFFF',
             darkText: '#F9F9F9',
-            secondary: '#00009C',
+            secondary: '#e65c00bc',
             white: '#000000',
             mediumGray: '#f9f9f9',
             darkerGray: '#cccccc',

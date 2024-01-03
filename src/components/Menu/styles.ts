@@ -41,7 +41,7 @@ export const Logo = styled.div`
       margin-bottom: ${theme.spacings.xlarge};
 
       img {
-        border: 0.5rem solid ${theme.colors.secondary};
+        border: 0.5rem solid ${theme.colors.gray10};
       }
     }
   `}
@@ -52,7 +52,7 @@ const buttonChanger = (
   theme: DefaultTheme,
 ) => css`
   left: ${menuVisible ? '26rem' : '1rem'};
-  color: ${menuVisible ? theme.colors.secondary : theme.colors.white}
+  color: ${theme.colors.white}
 
 `;
 
