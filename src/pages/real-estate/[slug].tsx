@@ -1,5 +1,4 @@
 import { loadRealStates } from 'api/load-real-states';
-import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { CardTemplate } from 'templates/CardTemplate';
@@ -11,6 +10,7 @@ export default function PostPage({ realStates, setting }: CardsTemplateProps) {
   if (router.isFallback) {
     return <h1>Loading...</h1>;
   }
+
   return (
     <>
       <Head>
@@ -29,20 +29,11 @@ export default function PostPage({ realStates, setting }: CardsTemplateProps) {
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: true,
-  };
-};
-
-export const getStaticProps: GetStaticProps<CardsTemplateProps> = async (
-  ctx,
-) => {
+export async function getServerSideProps({ params }) {
   let data = null;
 
   try {
-    data = await loadRealStates({ slug: ctx.params.slug as string });
+    data = await loadRealStates({ slug: params.slug });
   } catch (e) {
     data = null;
   }
@@ -58,6 +49,5 @@ export const getStaticProps: GetStaticProps<CardsTemplateProps> = async (
       realStates: data.realStates,
       setting: data.setting,
     },
-    revalidate: 24 * 60 * 60,
   };
-};
+}

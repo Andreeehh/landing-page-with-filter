@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { loadRealStates, LoadRealStatesVariables } from 'api/load-real-states';
 import { StrapiRealStates } from 'shared-typed/strapi-real-satates';
 import { StrapiSettingResponse } from 'shared-typed/strapi-setting-response';
@@ -24,16 +24,9 @@ export default function RealEstatePage({
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: true,
-  };
-};
-
-export const getStaticProps: GetStaticProps<RealEstatePageProps> = async ({
-  params,
-}) => {
+export const getServerSideProps: GetServerSideProps<
+  RealEstatePageProps
+> = async ({ params }) => {
   const slug = params?.slug as string;
 
   // Extrair valores da slug (por exemplo, bedrooms=4&bathrooms=2)
@@ -80,6 +73,5 @@ export const getStaticProps: GetStaticProps<RealEstatePageProps> = async ({
       setting: data.setting,
       variables,
     },
-    revalidate: 24 * 60,
   };
 };
